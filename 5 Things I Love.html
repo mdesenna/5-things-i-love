@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div.maindiv {
+	height:30em;
+	position:relative;
+}
+
+div.maindiv div{
+	margin:0;
+	position:absolute;
+	top: 50%;
+	left:50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%)
+}
+
+.red{
+	color:red;
+}
+</style>
+</head>
+
+
+<body>
+
+
+<div class="maindiv">
+<div id="ilovex">
+
+<p>Type in 5 things you love.<p>
+
+
+<form id="loveform">
+<input type="text" id="in1" /><br /><br />
+<input type="text" id="in2" /><br /><br />
+<input type="text" id="in3" /><br /><br />
+<input type="text" id="in4" /><br /><br />
+<input type="text" id="in5" /><br /><br />
+</form>
+
+
+<br /><br /><button type="button" onclick="setTime()">Go</button><br /><br />
+
+<p id="demo"></p>
+
+</div>
+</div>
+
+
+<script>
+var words = document.forms["loveform"];
+var i=0;
+
+function setTime() {
+    setTimeout(printWord, 1000);
+
+}
+function printWord() {
+	document.getElementById("ilovex").innerHTML = '<p id="demo">I love <span id="redword" class="red"></span>.</p>';
+	
+	document.getElementById("redword").innerHTML = words[i].value;
+	i++;
+	if (i==words.length){i=0;}
+	setTimeout(printWord, 1000);	
+}
+</script>
+
+</body>
+</html> 
